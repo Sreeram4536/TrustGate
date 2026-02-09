@@ -27,3 +27,5 @@ Thumbs.db
 # TS Node Dev temp files
 tmp/
 .cache/
+
+uploads/
