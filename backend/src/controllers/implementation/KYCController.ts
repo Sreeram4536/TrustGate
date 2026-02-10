@@ -72,7 +72,7 @@ export class KYCController {
                 res.status(201).json({ message: 'KYC submitted successfully', kyc: newKYC });
             }
 
-        } catch (error: any) {
+        } catch (error) {
             console.error('KYC Upload Error:', error);
             console.error('Error details:', {
                 message: error.message,

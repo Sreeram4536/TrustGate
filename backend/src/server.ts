@@ -15,7 +15,7 @@ const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/image_kyc_
 
 const allowedOrigins=[
     "http://localhost:5173",
-    "https://trustgate-front.onrender.com"
+    "https://trustgate-1-front.onrender.com"
 ]
 
 // Middleware
