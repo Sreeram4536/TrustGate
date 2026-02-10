@@ -95,7 +95,7 @@ export class KYCController {
 
             res.status(500).json({
                 message: 'Internal server error during KYC upload',
-                error: process.env.NODE_ENV === 'development' ? error.message : undefined
+                
             });
         }
     }
