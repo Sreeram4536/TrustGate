@@ -73,12 +73,9 @@ export class KYCController {
             }
 
         } catch (error) {
+            const err = error as any;
             console.error('KYC Upload Error:', error);
-            console.error('Error details:', {
-                message: error.message,
-                stack: error.stack,
-                cloudinaryError: error.error
-            });
+           
 
             
             try {
