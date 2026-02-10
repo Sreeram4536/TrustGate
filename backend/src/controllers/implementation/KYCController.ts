@@ -4,16 +4,12 @@ import KYC, { IKYC } from '../../models/KYC';
 import { v2 as cloudinary } from 'cloudinary';
 import fs from 'fs';
 
-// Configure Cloudinary again or import from config
-// Ideally import from ../../config/cloudinary, but direct import here is fine if config was run at startup
-// But better to ensure config is loaded.
 
-// Ensure cloudinary is configured
 import '../../config/cloudinary';
 
 export class KYCController {
 
-    // Upload both Image and Video
+
     async uploadKYC(req: AuthRequest, res: Response, next: NextFunction): Promise<void> {
         try {
             const user = req.user;
@@ -28,10 +24,7 @@ export class KYCController {
                 return;
             }
             if (existingKYC && existingKYC.status === 'pending') {
-                // Maybe allow overwrite if pending? Or block? let's block for now to keep it simple or update.
-                // Let's allow overwrite for now by deleting old one or just updating.
-                // Actually, let's just update the fields.
-            }
+               
 
             const files = req.files as { [fieldname: string]: Express.Multer.File[] };
 
@@ -84,7 +77,7 @@ export class KYCController {
                 cloudinaryError: error.error
             });
 
-            // Cleanup files if they exist and error occurred
+            
             try {
                 const files = req.files as { [fieldname: string]: Express.Multer.File[] };
                 if (files?.['image']?.[0]?.path && fs.existsSync(files['image'][0].path)) {

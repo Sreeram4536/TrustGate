@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: process.env.VITE_BACKEND_URL,
+    baseURL: import.meta.env.VITE_BACKEND_URL,
     headers: {
         'Content-Type': 'application/json',
     },
@@ -30,7 +30,7 @@ api.interceptors.response.use(
             if (refreshToken) {
                 try {
                     // Call refresh token endpoint
-                    const response = await axios.post(`${process.env.VITE_BACKEND_URL}/auth/refresh-token`, { refreshToken });
+                    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/auth/refresh-token`, { refreshToken });
 
                     const { accessToken, refreshToken: newRefreshToken } = response.data;
 
