@@ -24,6 +24,9 @@ export class KYCController {
                 return;
             }
             if (existingKYC && existingKYC.status === 'pending') {
+                  res.status(400).json({ message: 'KYC already pending approval' });
+                return;
+            }
                
 
             const files = req.files as { [fieldname: string]: Express.Multer.File[] };
